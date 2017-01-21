@@ -1,0 +1,465 @@
+@import url('https://malcat-gen.appspot.com/series?template=.link.sort[href*="/${id}/"]:after{background-image:url(${series_image})}');
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700|Orbitron:400,700);
+
+/* make background cover */
+html, body.ownlist {
+  background-color: #555;
+  background-image: url(https://juici.github.io/MAL-Styles/bg/ngnl.jpg);
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* set page default font */
+body {
+  font-family: 'Open Sans', Verdana, Arial, sans-serif;
+}
+
+/* hide footer */
+footer {
+  display: none;
+}
+
+/* remove link outline - firefox */
+a {
+  outline: 0;
+}
+
+/* -------------------------------------------------- */
+/*  Header Menu                                       */
+/* -------------------------------------------------- */
+
+/* fixed header position */
+.header {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 60px;
+  width: 100%;
+  background-color: rgba(0,0,0,.8);
+  box-shadow: 0 0 5px 1px rgba(0,0,0,.8);
+}
+.header .header-title {
+  top: 10px;
+  left: 10px;
+  background-position: center center;
+  background-size: auto 25px;
+  height: 40px;
+  width: 160px;
+  margin-top: 2px;
+}
+/* header menu for own list */
+.header .header-menu {
+  top: 0;
+  right: 15px;
+  color: #bbb;
+}
+.header .header-menu a,
+.header .header-menu span {
+  color: #fff;
+}
+.header .header-menu .btn-menu {
+  font-size: 14px;
+  height: 60px;
+  line-height: 60px;
+}
+/* header menu when others view */
+.header .header-menu.other {
+  top: 5px;
+}
+.header .header-menu.other .btn-menu {
+  height: 30px;
+  line-height: 30px;
+}
+.header .header-menu.other .header-info {
+  height: 20px;
+  line-height: 20px;
+  margin-top: 0;
+}
+.header .header-menu.other .list-menu {
+  background-color: rgba(0,0,0,.6);
+  border: 1px solid #fff;
+}
+.header .header-menu.other .list-menu .icon-menu {
+  height: 25px;
+  line-height: 25px;
+  width: 100px;
+  text-align: center;
+  transition: all ease-in-out 0.2s;
+}
+.header .header-menu.other .list-menu .icon-menu:hover {
+  background-color: rgba(255,255,255,.4);
+}
+.header .header-menu.other .list-menu .icon-menu .text {
+  position: static;
+}
+.header .header-menu.other .list-menu .icon-menu svg {
+  display: none;
+}
+
+/* add menu to header bar */
+.list-menu-float {
+  z-index: 102;
+  top: 5px;
+  left: 180px;
+  height: 50px;
+  width: 50px;
+  overflow-x: hidden;
+  border: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  transition: width ease-in-out 0.3s;
+}
+.list-menu-float:hover {
+  width: 320px;
+}
+.list-menu-float .icon-menu:not(.profile),
+.list-menu-float .icon-menu:not(.profile):hover {
+  flex: 0 0 auto;
+  height: 40px;
+  width: 40px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+}
+.list-menu-float .icon-menu.export,
+.list-menu-float .icon-menu .text {
+  display: none;
+}
+.list-menu-float .icon-menu svg.icon,
+.list-menu-float .icon-menu:hover svg.icon {
+  position: static;
+  fill: #bbb;
+  transition: all ease-in-out 0.2s;
+}
+.list-menu-float .icon-menu svg.icon-quick-add,
+.list-menu-float .icon-menu svg.icon-anime-list,
+.list-menu-float .icon-menu svg.icon-manga-list {
+  padding-bottom: 2px;
+}
+.list-menu-float .icon-menu svg.icon-setting {
+  padding-top: 3px;
+}
+.list-menu-float .icon-menu.profile {
+  flex: 0 0 auto;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: 2px solid #bbb;
+  box-sizing: border-box;
+  margin-right: 10px;
+  background-color: transparent;
+}
+.list-menu-float .icon-menu {
+  transition: all ease-in-out 0.2s;
+}
+.list-menu-float .icon-menu:hover svg.icon {
+  fill: #fff;
+}
+.list-menu-float .icon-menu.profile:hover {
+  border-color: #fff;
+}
+.list-menu-float .icon-menu.setting .text,
+.list-menu-float .icon-menu.setting .text .link-list-setting {
+  display: block;
+  position: absolute;
+  height: 40px !important;
+  width: 40px !important;
+  font-size: 0 !important;
+  background-color: transparent !important;
+  top: 0;
+  left: 0;
+}
+.list-menu-float .icon-menu.setting .text .link-style-setting {
+  display: none !important;
+}
+
+/* add status menu to header */
+.status-menu-container {
+  position: fixed;
+  top: 0;
+  height: 60px;
+  width: 800px;
+  z-index: 101;
+  background: none;
+  border: 0;
+}
+.status-menu-container .status-menu {
+  height: 60px;
+  border-spacing: 0;
+}
+.status-menu-container .status-menu .status-button {
+  color: #bbb;
+  font-family: 'Open Sans', Verdana, Arial, sans-serif;
+  font-size: 12px;
+  padding: 0 15px;
+  transition: all ease-in-out 0.2s;
+}
+.status-menu-container .status-menu .status-button.on {
+  color: #fff;
+  font-weight: 700;
+}
+.status-menu-container .status-menu .status-button:not(.on):hover {
+  color: #fff;
+}
+.status-menu-container .status-menu .status-button::after {
+  display: none;
+}
+/* retitle 'currently watching' as 'watching' */
+.status-menu-container .status-menu .status-button.watching {
+  font-size: 0;
+}
+.status-menu-container .status-menu .status-button.watching::before {
+  content: 'Watching';
+  font-size: 12px;
+}
+/* retitle 'currently reading' as 'reading' */
+.status-menu-container .status-menu .status-button.reading {
+  font-size: 0;
+}
+.status-menu-container .status-menu .status-button.reading::before {
+  content: 'Reading';
+  font-size: 12px;
+}
+/* retitle 'plan to watch' and 'plan to read' as 'planned' */
+.status-menu-container .status-menu .status-button.plantowatch,
+.status-menu-container .status-menu .status-button.plantoread {
+  font-size: 0;
+}
+.status-menu-container .status-menu .status-button.plantowatch::before,
+.status-menu-container .status-menu .status-button.plantoread::before {
+  content: 'Planned';
+  font-size: 12px;
+}
+
+/* search bar disabled */
+.status-menu-container .search-container {
+  display: none;
+}
+
+/* -------------------------------------------------- */
+/*  List                                              */
+/* -------------------------------------------------- */
+
+/* list container */
+.list-container {
+  position: absolute;
+  top: 0;
+  left: calc(50% - 400px);
+  width: 800px;
+  background-color: rgba(0,0,0,.6);
+  border-width: 0 6px;
+  border-style: solid;
+  border-color: rgba(0,0,100,.6);
+  box-shadow: 0 0 3px 2px #0ff;
+}
+.list-block {
+  margin: 0 !important;
+  padding-top: 60px;
+  border-width: 0 1px;
+  border-style: solid;
+  border-color: rgba(0,255,255,.6);
+}
+.list-unit {
+  width: 100%;
+}
+.list-unit .loading-space {
+  display: none;
+}
+
+/* list title */
+.list-unit .list-status-title {
+  width: 100%;
+  background: none;
+  margin: 80px 0 40px 0;
+}
+.list-unit .list-status-title .text {
+  display: block;
+  height: 50px;
+  line-height: 50px;
+  width: 80%;
+  text-align: center;
+  margin: 0 auto;
+  box-shadow: 0 -5px 5px -6px #fff,
+              0 5px 5px -6px #fff;
+  font-family: Orbitron, 'Open Sans', Verdana, Arial, sans-serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 18px;
+  text-shadow: 0 0 1px #00f,
+               0 0 3px #0ff,
+               0 0 3px #0ff;
+}
+/* hide stats/filter */
+.list-unit .list-status-title .stats {
+  display: none;
+}
+
+/* table general */
+.list-table {
+  border: 0;
+  color: #fff;
+}
+.list-table a {
+  color: #fff;
+}
+.list-table > tbody,
+.list-table .header-title {
+  background: none !important;
+}
+.list-table > tbody,
+.list-table .header-title,
+.list-table .data,
+.list-table .more-info {
+  border: 0 !important;
+}
+/* hide watch icon */
+.list-table .icon-watch {
+  display: none;
+}
+
+/* table headers */
+.list-table .header-title,
+.list-table .header-title a {
+  color: #fff !important;
+  font-family: Orbitron, 'Open Sans', Verdana, Arial, sans-serif;
+  font-style: italic;
+  text-shadow: 0 0 1px #00f,
+               0 0 3px #0ff;
+}
+/* hide number and image headers */
+.list-table .header-title.number,
+.list-table .header-title.image {
+  visibility: hidden;
+}
+.list-table .header-title {
+  padding-bottom: 10px;
+}
+
+/* table entries */
+.list-table .data,
+.list-table .data a {
+  color: #fff !important;
+  font-family: 'Open Sans', Verdana, Arial, sans-serif;
+}
+
+/* resize table items */
+.list-table .header-title.status {
+  padding: 0 !important;
+}
+.list-table .header-title.number,
+.list-table .header-title.image,
+.list-table .header-title.score,
+.list-table .header-title.type {
+  width: auto !important;
+}
+/* widen so score adjustment doesn't move columns */
+.list-table .header-title.score {
+  min-width: 50px;
+}
+.list-table .data.number,
+.list-table .data.image,
+.list-table .data.score,
+.list-table .data.type {
+  padding: 4px;
+}
+.list-table .data.image .image {
+  height: 30px !important;
+  width: 30px !important;
+  border-radius: 50%;
+  border: 2px solid #fff !important;
+}
+
+/* darken more-info */
+.list-table .more-info {
+  background-color: rgba(0,0,0,.2);
+}
+
+/* rewatching/status glow */
+.list-table .data.title .rewatching,
+.list-table .data.title .content-status {
+  color: #fff !important;
+  font-style: italic;
+  text-shadow: 0 0 1px #00f,
+               0 0 3px #0ff;
+  margin: 0 5px;
+}
+
+/* highlist table item on hover */
+.list-table .list-item:hover .data {
+  background-color: rgba(255,255,255,.2);
+}
+
+/* hover image cover */
+.list-table .list-item .data.image .link.sort::after {
+  content: '';
+  position: fixed;
+  top: 75px;
+  right: -200px;
+  display: block;
+  height: 272px;
+  width: 192px;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: 4px solid #fff;
+  opacity: 0;
+  box-shadow: 0 0 5px 0 #000;
+  transition: all ease-in-out 0.3s;
+}
+.list-table .list-item:hover .data.image .link.sort::after {
+  opacity: 1;
+  right: 15px;
+}
+
+/* hover tag info */
+.list-table .header-title.tags,
+.list-table .data.tags {
+  position: fixed;
+  top: 370px;
+  right: -200px;
+  display: block;
+  width: 182px;
+  opacity: 0;
+  padding: 5px;
+  box-shadow: 0 0 5px 0 #000;
+  border: 4px solid #fff !important;
+  background-color: #222 !important;
+  transition: all ease-in-out 0.3s;
+}
+.list-table .list-item:hover .data.tags {
+  right: 15px;
+  opacity: 1;
+}
+.list-table .data.tags span a {
+  text-decoration: none !important;
+  pointer-events: none;
+  cursor: default;
+}
+.list-table .data.tags .edit,
+.list-table .data.tags .edit:hover {
+  color: #bbb !important;
+}
+.list-table .data.tags .edit-transition {
+  background: none;
+  border: 0;
+  height: 100%;
+  width: 100%;
+  resize: none;
+}
+.list-table .data.tags span a,
+.list-table .data.tags .edit-transition {
+  color: #fff;
+  font-family: 'Open Sans', Verdana, Arial, sans-serif;
+  font-size: 11px;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  height: auto;
+  overflow-y: hidden !important;
+}
